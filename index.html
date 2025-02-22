@@ -6,9 +6,9 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Hello World</h1>
+    <h3>Submission details</h3>
 
-    <button type="button" id="btn">Click me</button>
+    <button type="button" id="btn">Set user</button>
 
     <button id="connectionBtn">Fetch connection id</button>
 
@@ -19,7 +19,7 @@
     <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
     <script>
       const socket = io("http://localhost:3001");
-      const userId = "1";
+      const userId = "123";
 
       document.addEventListener("DOMContentLoaded", () => {
         socket.on("connect", () => {
@@ -43,6 +43,8 @@
         });
 
         socket.on("submissionPayloadResponse", (data) => {
+          console.log("data", data);
+
           document.getElementById("submissionResponse").textContent =
             JSON.stringify(data);
         });
